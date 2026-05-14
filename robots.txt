@@ -1,0 +1,12 @@
+# Humbo Technology — humbotech.com
+# Allow all search engines to crawl all pages
+
+User-agent: *
+Allow: /
+
+# Block crawlers from any future admin or build artifacts (defensive)
+Disallow: /admin/
+Disallow: /node_modules/
+Disallow: /.git/
+
+Sitemap: https://humbotech.com/sitemap.xml
