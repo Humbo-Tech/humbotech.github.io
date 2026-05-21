@@ -1104,6 +1104,12 @@
   .flow-step:nth-child(2) .flow-num { background: #8b5cf6; }
   .flow-step:nth-child(3) .flow-num { background: #10b981; }
   .flow-step:nth-child(4) .flow-num { background: #f59e0b; }
+  html[lang="en"] .flow-num {
+    width: auto; height: 28px;
+    border-radius: 999px;
+    padding: 0 14px;
+    font-size: 0.8rem;
+  }
   .flow-label {
     font-weight: 700; font-size: 0.9rem;
     color: var(--navy); margin-bottom: 6px;
@@ -1792,17 +1798,17 @@
         </p>
         <div class="flow-steps">
           <div class="flow-step">
-            <div class="flow-num">感</div>
+             <div class="flow-num" data-i18n="blog.a1.flow.1.char">感</div>
             <div class="flow-label" data-i18n="blog.a1.flow.1.t">精準感測</div>
             <div class="flow-sub" data-i18n="blog.a1.flow.1.d">高性能感測器模組，精準擷取物理量</div>
           </div>
           <div class="flow-step">
-            <div class="flow-num">算</div>
+             <div class="flow-num" data-i18n="blog.a1.flow.2.char">算</div>
             <div class="flow-label" data-i18n="blog.a1.flow.2.t">邊緣演算</div>
             <div class="flow-sub" data-i18n="blog.a1.flow.2.d">AI 演算法在端點即時推論，無需雲端</div>
           </div>
           <div class="flow-step">
-            <div class="flow-num">傳</div>
+             <div class="flow-num" data-i18n="blog.a1.flow.3.char">傳</div>
             <div class="flow-label" data-i18n="blog.a1.flow.3.t">低功耗傳輸</div>
             <div class="flow-sub" data-i18n="blog.a1.flow.3.d">BLE 精準傳送結果，大幅節省電力</div>
           </div>
@@ -2044,9 +2050,9 @@ const I18N = {
     'blog.a1.tbl.r6a': 'Algorithm Protection', 'blog.a1.tbl.r6b': 'Hard (cloud-deployed, easy to leak)', 'blog.a1.tbl.r6c': 'Possible via ASIC hardening',
     'blog.a1.s2.title': '2. "Sense·Compute·Transmit" — A Trinity Design Philosophy',
     'blog.a1.s2.intro': 'Humbo Technology\'s core methodology is to deeply integrate three normally-separate stages into one efficient closed loop:',
-    'blog.a1.flow.1.t': 'Precise Sensing', 'blog.a1.flow.1.d': 'High-performance sensor modules capture physical quantities precisely',
-    'blog.a1.flow.2.t': 'Edge Computing', 'blog.a1.flow.2.d': 'AI algorithms infer in real time on the endpoint — no cloud needed',
-    'blog.a1.flow.3.t': 'Low-Power Transmission', 'blog.a1.flow.3.d': 'BLE sends only the results — dramatically saving power',
+    'blog.a1.flow.1.char': 'Sense', 'blog.a1.flow.1.t': 'Precise Sensing', 'blog.a1.flow.1.d': 'High-performance sensor modules capture physical quantities precisely',
+    'blog.a1.flow.2.char': 'Compute', 'blog.a1.flow.2.t': 'Edge Computing', 'blog.a1.flow.2.d': 'AI algorithms infer in real time on the endpoint — no cloud needed',
+    'blog.a1.flow.3.char': 'Transmit', 'blog.a1.flow.3.t': 'Low-Power Transmission', 'blog.a1.flow.3.d': 'BLE sends only the results — dramatically saving power',
     'blog.a1.s2.highlight': '<strong>Key advantage:</strong> In traditional architectures, computation depends on the cloud, with latency and power as constant headaches. By integrating "sensor + algorithm" at the endpoint, Humbo Technology pushes judgment down to the device itself — while reserving an ASIC design path for long-term algorithm protection.',
     'blog.a1.s3.title': '3. What Can We Help You Build?',
     'blog.a1.s3.intro': 'Humbo Technology delivers end-to-end solutions across two core models:',
@@ -2166,9 +2172,9 @@ const I18N = {
     'blog.a1.tbl.r6a': 'アルゴリズム保護', 'blog.a1.tbl.r6b': '困難（クラウド配置で漏洩しやすい）', 'blog.a1.tbl.r6c': 'ASICによる固定化で保護可能',
     'blog.a1.s2.title': '2.「感・算・伝」三位一体の設計思想',
     'blog.a1.s2.intro': '瀚渤科技の中核方法論は、通常分離している3つの段階を深く統合し、効率的な閉ループを形成することです：',
-    'blog.a1.flow.1.t': '精密センシング', 'blog.a1.flow.1.d': '高性能センサーモジュールで物理量を精密取得',
-    'blog.a1.flow.2.t': 'エッジ演算', 'blog.a1.flow.2.d': 'AIアルゴリズムがエンドポイントでリアルタイム推論、クラウド不要',
-    'blog.a1.flow.3.t': '低消費電力通信', 'blog.a1.flow.3.d': 'BLEで結果のみを送信、電力を大幅に節約',
+    'blog.a1.flow.1.char': '感', 'blog.a1.flow.1.t': '精密センシング', 'blog.a1.flow.1.d': '高性能センサーモジュールで物理量を精密取得',
+    'blog.a1.flow.2.char': '算', 'blog.a1.flow.2.t': 'エッジ演算', 'blog.a1.flow.2.d': 'AIアルゴリズムがエンドポイントでリアルタイム推論、クラウド不要',
+    'blog.a1.flow.3.char': '伝', 'blog.a1.flow.3.t': '低消費電力通信', 'blog.a1.flow.3.d': 'BLEで結果のみを送信、電力を大幅に節約',
     'blog.a1.s2.highlight': '<strong>重要なメリット：</strong>従来の構成では演算がクラウドに依存し、遅延と消費電力が常に問題でした。瀚渤科技は「センサー＋アルゴリズム」のエンドポイント統合により、判断力をデバイス自体に下ろし、長期的なアルゴリズム保護のためのASIC設計パスを確保します。',
     'blog.a1.s3.title': '3. 私たちは何を開発支援できるか？',
     'blog.a1.s3.intro': '瀚渤科技は2つの中核モデルでエンドツーエンドのソリューションを提供します：',
