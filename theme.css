@@ -202,6 +202,7 @@ nav {
   display: flex;
   align-items: center;
   gap: 8px;
+  margin-left: auto;
 }
 
 .nav-links a, .nav-links button {
@@ -228,40 +229,88 @@ nav {
   background: rgba(56, 189, 248, 0.12);
 }
 
-/* Language Switcher */
-.lang-switcher {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(56, 189, 248, 0.2);
-  border-radius: 24px;
-  padding: 3px;
-  margin-left: 12px;
+/* Globe Language Switcher Dropdown */
+.lang-dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: 16px;
 }
 
-.lang-switcher button {
+.lang-btn {
   background: none;
   border: none;
+  color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
-  padding: 5px 12px;
-  border-radius: 20px;
-  color: rgba(255, 255, 255, 0.6);
-  font-family: 'Manrope', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 700;
-  transition: var(--transition);
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  width: 38px;
+  height: 38px;
 }
 
-.lang-switcher button:hover {
-  color: var(--white);
+.lang-btn:hover, .lang-dropdown.active .lang-btn {
+  color: var(--accent);
   background: rgba(56, 189, 248, 0.08);
 }
 
-.lang-switcher button.active {
-  background: linear-gradient(135deg, var(--accent), var(--teal));
-  color: var(--navy);
-  box-shadow: 0 2px 10px rgba(56, 189, 248, 0.3);
+.lang-btn svg.globe-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.lang-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  background: rgba(10, 25, 47, 0.95);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 12px;
+  padding: 8px 0;
+  min-width: 130px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1100;
+  transform: translateY(10px);
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.lang-dropdown.active .lang-dropdown-menu {
+  display: block;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.lang-dropdown-menu button {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lang-dropdown-menu button:hover {
+  color: var(--accent);
+  background: rgba(56, 189, 248, 0.08);
+}
+
+.lang-dropdown-menu button.active {
+  color: var(--accent);
+  font-weight: 700;
+  background: rgba(56, 189, 248, 0.12);
 }
 
 /* Hamburger mobile menu button */
@@ -324,16 +373,9 @@ nav {
     border-radius: 8px;
   }
 
-  .lang-switcher {
-    margin-left: 0;
-    margin-top: 16px;
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .lang-switcher button {
-    flex: 1;
-    text-align: center;
+  .lang-dropdown {
+    margin-left: auto;
+    margin-right: 16px;
   }
 }
 

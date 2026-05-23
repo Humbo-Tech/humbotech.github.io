@@ -366,10 +366,20 @@
       <button onclick="scrollToSlide('s8')" data-i18n="nav.scenarios">應用案例</button>
       <button onclick="scrollToSlide('s10')" data-i18n="nav.contact">聯絡我們</button>
       
-      <div class="lang-switcher" role="group" aria-label="Language">
-        <button data-lang="zh" onclick="setLang('zh')" class="active">中</button>
-        <button data-lang="en" onclick="setLang('en')">EN</button>
-        <button data-lang="ja" onclick="setLang('ja')">日</button>
+      </div>
+    
+    <div class="lang-dropdown">
+      <button class="lang-btn" onclick="toggleLangDropdown(event)" aria-label="Select Language">
+        <svg class="globe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="2" y1="12" x2="22" y2="12"></line>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        </svg>
+      </button>
+      <div class="lang-dropdown-menu" id="langDropdownMenu">
+        <button data-lang="zh" onclick="setLang('zh')">繁體中文</button>
+        <button data-lang="en" onclick="setLang('en')">English</button>
+        <button data-lang="ja" onclick="setLang('ja')">日本語</button>
       </div>
     </div>
     
@@ -915,6 +925,19 @@ I18N.ja = {
 
 let currentLang = 'zh';
 
+function toggleLangDropdown(event) {
+  event.stopPropagation();
+  const dropdown = document.querySelector('.lang-dropdown');
+  if (dropdown) dropdown.classList.toggle('active');
+}
+
+document.addEventListener('click', function(event) {
+  const dropdown = document.querySelector('.lang-dropdown');
+  if (dropdown && !dropdown.contains(event.target)) {
+    dropdown.classList.remove('active');
+  }
+});
+
 function toggleMobileMenu() {
   document.getElementById('hamburgerMenu').classList.toggle('active');
   document.querySelector('.nav-links').classList.toggle('active');
@@ -950,7 +973,7 @@ function setLang(lang) {
       el.innerHTML = I18N[lang][key];
     }
   });
-  document.querySelectorAll('.lang-switcher button').forEach(btn => {
+  document.querySelectorAll('.lang-dropdown-menu button').forEach(btn => {
     btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
   });
   document.documentElement.lang = lang === 'zh' ? 'zh-TW' : lang;

@@ -1236,12 +1236,22 @@
     <a href="#products" onclick="showPage('products', this); return false;" data-i18n="nav.products">產品</a>
     <a href="#blog" onclick="showPage('blog', this); return false;" data-i18n="nav.blog">技術論壇</a>
   
-    <div class="lang-switcher" role="group" aria-label="Language">
-    <button data-lang="zh" onclick="setLang('zh')">中</button>
-    <button data-lang="en" onclick="setLang('en')">EN</button>
-    <button data-lang="ja" onclick="setLang('ja')">日</button>
-  </div>
-  </div>
+    </div>
+    
+    <div class="lang-dropdown">
+      <button class="lang-btn" onclick="toggleLangDropdown(event)" aria-label="Select Language">
+        <svg class="globe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="2" y1="12" x2="22" y2="12"></line>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        </svg>
+      </button>
+      <div class="lang-dropdown-menu" id="langDropdownMenu">
+        <button data-lang="zh" onclick="setLang('zh')">繁體中文</button>
+        <button data-lang="en" onclick="setLang('en')">English</button>
+        <button data-lang="ja" onclick="setLang('ja')">日本語</button>
+      </div>
+    </div>
     <button class="hamburger-menu" id="hamburgerMenu" onclick="toggleMobileMenu()">
       <span></span>
       <span></span>
@@ -1672,6 +1682,19 @@
 </footer>
 
 <script>
+function toggleLangDropdown(event) {
+  event.stopPropagation();
+  const dropdown = document.querySelector('.lang-dropdown');
+  if (dropdown) dropdown.classList.toggle('active');
+}
+
+document.addEventListener('click', function(event) {
+  const dropdown = document.querySelector('.lang-dropdown');
+  if (dropdown && !dropdown.contains(event.target)) {
+    dropdown.classList.remove('active');
+  }
+});
+
 function toggleMobileMenu() {
   document.getElementById('hamburgerMenu').classList.toggle('active');
   document.querySelector('.nav-links').classList.toggle('active');
@@ -2012,7 +2035,7 @@ function setLang(lang) {
   });
 
   // Update active button
-  document.querySelectorAll('.lang-switcher button').forEach(b => {
+  document.querySelectorAll('.lang-dropdown-menu button').forEach(b => {
     b.classList.toggle('active', b.getAttribute('data-lang') === lang);
   });
 
