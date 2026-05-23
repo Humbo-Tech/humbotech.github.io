@@ -423,7 +423,7 @@
           <span class="dot"></span>
           <span data-i18n="hero.badge">SH-100 / SH-200 · BLE SENSOR HUB · 2026</span>
         </div>
-        <h1 class="hero-slogan-en"><span class="accent">市場應用</span>總覽</h1>
+        <h1 class="hero-slogan-en" data-i18n-html="hero.title"><span class="accent">市場應用</span>總覽</h1>
         <div class="hero-slogan-zh" data-i18n-html="hero.subtitle">BLE Sensor Hub × 多通道感測<br>彈性擴充 I²C / SPI / GPIO，連結多種感測器</div>
         <p class="hero-desc" data-i18n="hero.desc">
           NexBle BLE Sensor Hub 系列（SH-100、SH-200）為多通道 BLE IC 平台，整合 2.4G RF 與彈性感測介面，可同時連接溫度、濕度、壓力、振動、加速度等多種感測器。無需複雜 MCU 開發，透過 SmartBeacon 架構配置即可運作。瀚渤科技作為知名BLE廠商合作夥伴，提供感測模組設計、韌體整合與系統支援服務。
@@ -455,38 +455,38 @@
             <!-- connected sensor nodes -->
             <!-- top: temperature -->
             <circle cx="200" cy="54" r="16" fill="#f59e0b" opacity="0.12" stroke="#f59e0b" stroke-width="0.8" stroke-opacity="0.5"/>
-            <text x="180" y="50" font-family="Noto Sans TC,sans-serif" font-weight="700" font-size="6" fill="#f59e0b">溫度</text>
+            <text x="180" y="50" font-family="Noto Sans TC,sans-serif" font-weight="700" font-size="6" fill="#f59e0b" data-i18n="diagram.temp">溫度</text>
             <text x="180" y="60" font-family="Noto Sans TC,sans-serif" font-weight="500" font-size="5" fill="#f59e0b" opacity="0.7">TEMP</text>
             <line x1="200" y1="70" x2="200" y2="124" stroke="#38bdf8" stroke-width="0.6" stroke-dasharray="3 3" opacity="0.4"/>
 
             <!-- top-left: humidity -->
             <circle cx="106" cy="90" r="14" fill="#06b6d4" opacity="0.12" stroke="#06b6d4" stroke-width="0.8" stroke-opacity="0.5"/>
-            <text x="88" y="86" font-family="Noto Sans TC,sans-serif" font-weight="700" font-size="6" fill="#06b6d4">濕度</text>
+            <text x="88" y="86" font-family="Noto Sans TC,sans-serif" font-weight="700" font-size="6" fill="#06b6d4" data-i18n="diagram.humid">濕度</text>
             <text x="88" y="96" font-family="Noto Sans TC,sans-serif" font-weight="500" font-size="5" fill="#06b6d4" opacity="0.7">HUMID</text>
             <line x1="120" y1="100" x2="170" y2="144" stroke="#38bdf8" stroke-width="0.6" stroke-dasharray="3 3" opacity="0.4"/>
 
             <!-- top-right: pressure -->
             <circle cx="294" cy="90" r="14" fill="#8b5cf6" opacity="0.12" stroke="#8b5cf6" stroke-width="0.8" stroke-opacity="0.5"/>
-            <text x="276" y="86" font-family="Noto Sans TC,sans-serif" font-weight="700" font-size="6" fill="#8b5cf6">壓力</text>
+            <text x="276" y="86" font-family="Noto Sans TC,sans-serif" font-weight="700" font-size="6" fill="#8b5cf6" data-i18n="diagram.press">壓力</text>
             <text x="276" y="96" font-family="Noto Sans TC,sans-serif" font-weight="500" font-size="5" fill="#8b5cf6" opacity="0.7">PRESS</text>
             <line x1="280" y1="100" x2="230" y2="144" stroke="#38bdf8" stroke-width="0.6" stroke-dasharray="3 3" opacity="0.4"/>
 
             <!-- bottom-left: vibration -->
             <circle cx="80" cy="230" r="14" fill="#10b981" opacity="0.12" stroke="#10b981" stroke-width="0.8" stroke-opacity="0.5"/>
-            <text x="62" y="226" font-family="Noto Sans TC,sans-serif" font-weight="700" font-size="6" fill="#10b981">振動</text>
+            <text x="62" y="226" font-family="Noto Sans TC,sans-serif" font-weight="700" font-size="6" fill="#10b981" data-i18n="diagram.vibe">振動</text>
             <text x="62" y="236" font-family="Noto Sans TC,sans-serif" font-weight="500" font-size="5" fill="#10b981" opacity="0.7">VIBE</text>
             <line x1="94" y1="220" x2="170" y2="176" stroke="#38bdf8" stroke-width="0.6" stroke-dasharray="3 3" opacity="0.4"/>
 
             <!-- bottom: acceleration -->
             <circle cx="200" cy="270" r="14" fill="#ef4444" opacity="0.12" stroke="#ef4444" stroke-width="0.8" stroke-opacity="0.5"/>
-            <text x="180" y="266" font-family="Noto Sans TC,sans-serif" font-weight="700" font-size="6" fill="#ef4444">加速度</text>
+            <text x="180" y="266" font-family="Noto Sans TC,sans-serif" font-weight="700" font-size="6" fill="#ef4444" data-i18n="diagram.accel">加速度</text>
             <text x="180" y="276" font-family="Noto Sans TC,sans-serif" font-weight="500" font-size="5" fill="#ef4444" opacity="0.7">ACCEL</text>
             <line x1="200" y1="256" x2="200" y2="196" stroke="#38bdf8" stroke-width="0.6" stroke-dasharray="3 3" opacity="0.4"/>
 
             <!-- bottom-right: BLE -->
             <circle cx="310" cy="240" r="18" fill="#38bdf8" opacity="0.1" stroke="#38bdf8" stroke-width="0.8" stroke-opacity="0.5"/>
             <text x="284" y="236" font-family="JetBrains Mono,monospace" font-weight="700" font-size="7" fill="#38bdf8">BLE</text>
-            <text x="288" y="248" font-family="Noto Sans TC,sans-serif" font-weight="500" font-size="5" fill="#38bdf8" opacity="0.7">廣播</text>
+            <text x="288" y="248" font-family="Noto Sans TC,sans-serif" font-weight="500" font-size="5" fill="#38bdf8" opacity="0.7" data-i18n="diagram.broadcast">廣播</text>
             <line x1="292" y1="232" x2="238" y2="182" stroke="#38bdf8" stroke-width="0.6" stroke-dasharray="3 3" opacity="0.4"/>
 
             <!-- cloud / gateway -->
@@ -495,7 +495,7 @@
             <line x1="200" y1="284" x2="200" y2="298" stroke="#38bdf8" stroke-width="0.6" opacity="0.3"/>
 
             <!-- legend -->
-            <text x="24" y="38" font-family="JetBrains Mono,monospace" font-weight="600" font-size="5" fill="#94a3b8" opacity="0.5">◉ SmartBeacon 多通道感測拓撲</text>
+            <text x="24" y="38" font-family="JetBrains Mono,monospace" font-weight="600" font-size="5" fill="#94a3b8" opacity="0.5" data-i18n="diagram.legend">◉ SmartBeacon 多通道感測拓撲</text>
           </g>
         </svg>
       </div>
@@ -815,8 +815,16 @@ const I18N = {
     'nav.about': 'About',
     'nav.contact': 'Contact',
     'hero.badge': 'SH-100 / SH-200 · BLE SENSOR HUB · 2026',
+    'hero.title': '<span class="accent">Market Applications</span> Overview',
     'hero.subtitle': 'BLE Sensor Hub × Multi-channel Sensing<br>Flexible I²C / SPI / GPIO for diverse sensors',
     'hero.desc': 'The NexBle BLE Sensor Hub series (SH-100, SH-200) is a multi-channel BLE IC platform integrating 2.4G RF with flexible sensor interfaces. It connects temperature, humidity, pressure, vibration, acceleration, and other sensors simultaneously. No complex MCU development — configure only via SmartBeacon architecture. Humbo Technology, as a partner of a leading BLE manufacturer, provides sensor module design, firmware integration, and system support.',
+    'diagram.temp': 'Temperature',
+    'diagram.humid': 'Humidity',
+    'diagram.press': 'Pressure',
+    'diagram.vibe': 'Vibration',
+    'diagram.accel': 'Acceleration',
+    'diagram.broadcast': 'Broadcast',
+    'diagram.legend': '◉ SmartBeacon Multi-channel Topology',
     'facts.title': 'SH-100 / SH-200 Core Positioning',
     'facts.title_en': 'SmartBeacon BLE Sensor Hub · Product Positioning',
     'facts.f1.t': 'Multi-Channel Sensing', 'facts.f1.d': 'I²C / SPI / GPIO interfaces<br>connect multiple sensor types',
@@ -893,8 +901,16 @@ const I18N = {
     'nav.about': '概要',
     'nav.contact': 'お問い合わせ',
     'hero.badge': 'SH-100 / SH-200 · BLE SENSOR HUB · 2026',
+    'hero.title': '<span class="accent">市場アプリケーション</span>概要',
     'hero.subtitle': 'BLE Sensor Hub × マルチチャンネルセンシング<br>柔軟な I²C / SPI / GPIO で多様なセンサーに対応',
     'hero.desc': 'NexBle BLE Sensor Hub シリーズ（SH-100、SH-200）は、2.4G RF と柔軟なセンサーインターフェースを統合したマルチチャンネル BLE IC プラットフォームです。温度、湿度、圧力、振動、加速度など複数のセンサーを同時に接続できます。複雑な MCU 開発は不要で、SmartBeacon アーキテクチャによる設定のみで動作します。Humbo Technology は大手BLEメーカーのパートナーとして、センサーモジュール設計、ファームウェア統合、システムサポートを提供します。',
+    'diagram.temp': '温度',
+    'diagram.humid': '湿度',
+    'diagram.press': '圧力',
+    'diagram.vibe': '振動',
+    'diagram.accel': '加速度',
+    'diagram.broadcast': 'ブロードキャスト',
+    'diagram.legend': '◉ SmartBeacon マルチチャネルトポロジー',
     'facts.title': 'SH-100 / SH-200 コアポジショニング',
     'facts.title_en': 'SmartBeacon BLE Sensor Hub · 製品ポジショニング',
     'facts.f1.t': 'マルチチャンネルセンシング', 'facts.f1.d': 'I²C / SPI / GPIO インターフェース<br>複数センサー種別を同時接続',

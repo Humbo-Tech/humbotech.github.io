@@ -423,7 +423,7 @@
           <span class="dot"></span>
           <span data-i18n="hero.badge">HB100 / HB120 · BLE SMART LABEL · 2026</span>
         </div>
-        <h1 class="hero-slogan-en"><span class="accent">台日市場</span>應用總覽</h1>
+        <h1 class="hero-slogan-en" data-i18n-html="hero.title"><span class="accent">台日市場</span>應用總覽</h1>
         <div class="hero-slogan-zh" data-i18n-html="hero.subtitle">BLE Smart Label × Taiwan + Japan<br>低成本主動式 BLE，逼近 Passive RFID 的價格</div>
         <p class="hero-desc" data-i18n="hero.desc">
           NexBle HB100（第一代）與 HB120（第二代）SmartBeacon BLE SoC，專為高容量、一次性、拋棄式場景設計。不需 MCU 開發、不需寫 code，純 config 即可運作。瀚渤科技作為知名BLE廠商合作夥伴，提供 pre-programming 服務與應用設計支援。
@@ -450,13 +450,13 @@
             <text x="220" y="36" font-family="Manrope,sans-serif" font-weight="800" font-size="8" fill="#38bdf8">JAPAN</text>
             <path d="M168 52 C178 48 195 46 210 42 C225 38 240 34 255 38 C270 42 280 54 285 68 C290 82 288 96 280 108 C272 120 258 128 245 130 C232 132 218 128 210 138 C202 148 195 162 185 170 C175 178 160 182 148 180 C136 178 124 172 118 162 C112 152 108 140 110 128 C112 116 118 106 125 98 C132 90 140 84 148 78 C156 72 162 64 168 52Z" fill="url(#jpGrad)" stroke="#7c3aed" stroke-width="0.8" stroke-opacity="0.5"/>
             <circle cx="192" cy="118" r="2" fill="#7c3aed" opacity="0.6" filter="url(#glow)"/>
-            <text x="196" y="122" font-family="Noto Sans TC,sans-serif" font-weight="700" font-size="8" fill="#7c3aed">東京</text>
+            <text x="196" y="122" font-family="Noto Sans TC,sans-serif" font-weight="700" font-size="8" fill="#7c3aed" data-i18n="diagram.tokyo">東京</text>
             <path d="M68 168 C78 162 90 158 102 156 C114 154 126 154 135 160 C144 166 148 176 146 186 C144 196 136 204 126 208 C116 212 104 212 94 208 C84 204 76 196 72 186 C68 176 66 172 68 168Z" fill="url(#twGrad)" stroke="#dc2626" stroke-width="0.8" stroke-opacity="0.5"/>
             <circle cx="106" cy="182" r="2" fill="#dc2626" opacity="0.6" filter="url(#glow)"/>
-            <text x="110" y="186" font-family="Noto Sans TC,sans-serif" font-weight="700" font-size="8" fill="#dc2626">台北</text>
+            <text x="110" y="186" font-family="Noto Sans TC,sans-serif" font-weight="700" font-size="8" fill="#dc2626" data-i18n="diagram.taipei">台北</text>
             <path d="M36 300 C44 292 56 286 68 284 C80 282 92 284 100 290 C108 296 110 304 108 312 C106 320 98 326 88 328 C78 330 66 328 58 324 C50 320 42 312 40 304 C38 300 34 304 36 300Z" fill="url(#twGrad)" stroke="#dc2626" stroke-width="0.8" stroke-opacity="0.5"/>
             <circle cx="72" cy="306" r="2" fill="#dc2626" opacity="0.6" filter="url(#glow)"/>
-            <text x="76" y="310" font-family="Noto Sans TC,sans-serif" font-weight="700" font-size="7" fill="#dc2626">高雄</text>
+            <text x="76" y="310" font-family="Noto Sans TC,sans-serif" font-weight="700" font-size="7" fill="#dc2626" data-i18n="diagram.kaohsiung">高雄</text>
             <path d="M128 234 C138 230 150 228 162 228 C174 228 186 232 194 240 C202 248 204 260 200 270 C196 280 188 288 178 292 C168 296 156 296 148 292 C140 288 134 280 132 272 C130 264 130 254 132 246 C132 240 130 236 128 234Z" fill="#38bdf8" opacity="0.06"/>
             <text x="144" y="260" font-family="Noto Sans TC,sans-serif" font-weight="700" font-size="7" fill="#38bdf8" opacity="0.5">East China Sea</text>
             <text x="28" y="146" font-family="Noto Sans TC,sans-serif" font-weight="700" font-size="7" fill="#94a3b8" opacity="0.5">Taiwan Strait</text>
@@ -781,8 +781,12 @@ const I18N = {
     'nav.about': 'About',
     'nav.contact': 'Contact',
     'hero.badge': 'HB100 / HB120 · BLE SMART LABEL · 2026',
+    'hero.title': '<span class="accent">Taiwan & Japan Market</span> Overview',
     'hero.subtitle': 'BLE Smart Label × Taiwan + Japan<br>Active BLE at near-passive-RFID price',
     'hero.desc': 'The NexBle HB100 (Gen 1) and HB120 (Gen 2) SmartBeacon BLE SoCs are designed for high-volume, disposable, single-use scenarios. No MCU development needed — configure only. Humbo Technology, as a partner of a leading BLE manufacturer, provides pre-programming services and application design support.',
+    'diagram.tokyo': 'Tokyo',
+    'diagram.taipei': 'Taipei',
+    'diagram.kaohsiung': 'Kaohsiung',
     'facts.title': 'HB100 / HB120 Core Positioning',
     'facts.title_en': 'SmartBeacon BLE SoC · Product Positioning',
     'facts.f1.t': 'Ultra-Low Cost', 'facts.f1.d': 'BOM approaching passive RFID<br>ideal for volume deployment',
@@ -859,8 +863,12 @@ const I18N = {
     'nav.about': '概要',
     'nav.contact': 'お問い合わせ',
     'hero.badge': 'HB100 / HB120 · BLE SMART LABEL · 2026',
+    'hero.title': '<span class="accent">台日市場</span>アプリケーション概要',
     'hero.subtitle': 'BLE Smart Label × 台湾 + 日本<br>パッシブRFIDに迫る低価格なアクティブBLE',
     'hero.desc': 'NexBle HB100（第1世代）・HB120（第2世代）SmartBeacon BLE SoCは、大量・使い捨て・ワンタイム用途向けに設計されています。MCU開発不要、設定のみで動作。Humbo Technologyは大手BLEメーカーのパートナーとして、プリプログラミングサービスとアプリケーション設計サポートを提供します。',
+    'diagram.tokyo': '東京',
+    'diagram.taipei': '台北',
+    'diagram.kaohsiung': '高雄',
     'facts.title': 'HB100 / HB120 コアポジショニング',
     'facts.title_en': 'SmartBeacon BLE SoC · 製品ポジショニング',
     'facts.f1.t': '超低コスト', 'facts.f1.d': 'パッシブRFIDに迫るBOM<br>大量導入に最適',
