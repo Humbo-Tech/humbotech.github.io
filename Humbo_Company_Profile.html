@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title data-i18n="title">瀚渤科技 Humbo Technology — Sense Smarter.</title>
+<meta name="description" content="瀚渤科技 Humbo Technology Inc. BLE Sensor Hub & SmartBeacon 智慧感測解決方案。">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="theme.css?v=2">
+<style>
+/* Adjust first slide for sticky header */
+.s1 {
+  padding-top: 72px !important;
+}
+
+/* ── SLIDE ── */
+.slide { min-height: 100vh; position: relative; overflow: hidden; }
+
+/* ═══════════════ SLIDE 1: HERO (matches PPT) ═══════════════ */
+.s1 {
+  background: var(--navy);
+  display: flex; align-items: center;
+  padding: 0;
+}
+.s1-bg1 {
+  position: absolute; pointer-events: none;
+  width: 800px; height: 800px; border-radius: 50%;
+  top: -200px; right: -150px;
+  background: radial-gradient(circle, rgba(56,189,248,0.10) 0%, transparent 65%);
+}
+.s1-bg2 {
+  position: absolute; pointer-events: none;
+  width: 600px; height: 600px; border-radius: 50%;
+  bottom: -180px; left: -150px;
+  background: radial-gradient(circle, rgba(6,182,212,0.07) 0%, transparent 65%);
+}
+.s1-grid {
+  position: absolute; inset: 0; pointer-events: none; opacity: 0.45;
+  background-image: linear-gradient(rgba(56,189,248,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56,189,248,0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 90%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 90%);
+}
+.s1-inner {
+  position: relative; z-index: 1;
+  max-width: 1180px; margin: 0 auto; padding: 0 48px;
+  display: grid; grid-template-columns: 1.15fr 1fr; gap: 60px;
+  align-items: center;
+  width: 100%;
+}
+.s1-left { min-width: 0; }
+.s1-right {
+  display: flex; align-items: center; justify-content: center;
+}
+.s1-logo {
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  aspect-ratio: 1/1; max-width: 340px; width: 100%;
+}
+.s1-logo::before {
+  content: ''; position: absolute; inset: 10%;
+  background: radial-gradient(circle at 50% 50%, rgba(56,189,248,0.20) 0%, rgba(56,189,248,0.06) 40%, transparent 70%);
+  border-radius: 50%; filter: blur(20px);
+  animation: breathe 5s ease-in-out infinite;
+}
+.s1-logo::after {
+  content: ''; position: absolute; inset: 0;
+  border-radius: 50%;
+  border: 1px dashed rgba(56,189,248,0.20);
+  animation: spin 60s linear infinite;
+}
+@keyframes breathe { 0%,100%{opacity:0.7;transform:scale(1)} 50%{opacity:1;transform:scale(1.06)} }
+@keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+.s1-logo svg { position:relative; z-index:1; width:72%; height:auto; filter:drop-shadow(0 8px 28px rgba(56,189,248,0.22)); }
+
+.s1-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(56,189,248,0.10);
+  border: 1px solid rgba(56,189,248,0.28);
+  border-radius: 24px; padding: 7px 18px;
+  color: var(--accent);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.s1-badge .dot {
+  width: 6px; height: 6px; background: var(--accent); border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent);
+  animation: pulse 2.2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(1.2)} }
+.s1-slogan {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.6rem, 5vw, 3.8rem);
+  line-height: 1.05; letter-spacing: -0.02em;
+  color: var(--white); margin-bottom: 14px;
+}
+.s1-slogan .accent {
+  background: linear-gradient(135deg, #38bdf8 0%, #06b6d4 50%, #818cf8 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.s1-sub {
+  font-size: 1.15rem; font-weight: 500;
+  color: var(--accent); letter-spacing: 0.10em;
+  margin-bottom: 16px;
+}
+.s1-desc {
+  color: rgba(255,255,255,0.70);
+  font-size: 1rem; line-height: 1.85;
+  max-width: 540px; margin-bottom: 36px;
+}
+.s1-foot {
+  display: flex; align-items: center; gap: 18px;
+}
+.s1-foot .left {
+  color: rgba(255,255,255,0.50);
+  font-size: 0.85rem; font-weight: 500;
+}
+.s1-foot .left strong { color: var(--white); font-weight: 700; }
+.s1-foot .right {
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600; text-decoration: none;
+}
+.s1-foot .s1-sep { width:1px; height:16px; background:rgba(255,255,255,0.15); }
+
+/* ═══════════════ SHARED ═══════════════ */
+.slide-inner {
+  max-width: 1180px; margin: 0 auto;
+  padding: 100px 48px;
+  position: relative; z-index: 1;
+}
+
+.s-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+.s-tag::before {
+  content: ''; width: 6px; height: 6px;
+  background: var(--accent); border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent);
+}
+.s-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(1.7rem, 3.4vw, 2.5rem);
+  font-weight: 800; color: var(--navy);
+  letter-spacing: -0.02em;
+  margin-bottom: 12px; line-height: 1.2;
+}
+.s-title .accent {
+  background: linear-gradient(135deg, #38bdf8 0%, #06b6d4 50%, #818cf8 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.s-body {
+  font-size: 1.02rem; color: var(--gray);
+  line-height: 1.9; max-width: 680px;
+  margin-bottom: 36px;
+}
+
+/* ── STATS ── */
+.stats {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  background: var(--lg); border-radius: 16px;
+  overflow: hidden; border: 1px solid #e2e8f0;
+}
+.stat { padding: 28px 24px; text-align: center; border-right: 1px solid #e2e8f0; }
+.stat:last-child { border-right: none; }
+.stat-num { font-family:'Manrope',sans-serif; font-weight:800; font-size:1.8rem; color:var(--accent-2); display:block; line-height:1; margin-bottom:6px; }
+.stat-lbl { font-size:0.78rem; color:var(--muted); letter-spacing:0.06em; }
+
+/* ── PILLARS ── */
+.p-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.p-card {
+  background:var(--lg); border-radius:18px; padding:34px 30px;
+  border:1px solid transparent; transition:all .3s ease;
+  position:relative; overflow:hidden;
+}
+.p-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.p-card:nth-child(1)::before { background:linear-gradient(90deg,#38bdf8,#06b6d4); }
+.p-card:nth-child(2)::before { background:linear-gradient(90deg,#a78bfa,#6366f1); }
+.p-card:nth-child(3)::before { background:linear-gradient(90deg,#10b981,#06b6d4); }
+.p-card:hover { transform:translateY(-5px); box-shadow:0 16px 40px rgba(26,74,138,0.12); border-color:var(--border); background:var(--white); }
+.p-char { font-family:'Manrope',sans-serif; font-size:2.8rem; font-weight:900; line-height:1; margin-bottom:12px; }
+.p-card:nth-child(1) .p-char { color:#0ea5e9; }
+.p-card:nth-child(2) .p-char { color:#8b5cf6; }
+.p-card:nth-child(3) .p-char { color:#10b981; }
+.p-name { font-weight:700; font-size:1.08rem; color:var(--navy); margin-bottom:6px; }
+.p-en { font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--muted); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:12px; }
+.p-desc { font-size:0.95rem; color:var(--gray); line-height:1.75; }
+
+/* ── CAPS ── */
+.c-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.c-item { display:flex; gap:16px; align-items:flex-start; background:var(--lg); border-radius:14px; padding:22px 24px; border:1px solid transparent; transition:all .25s; }
+.c-item:hover { border-color:var(--border); background:var(--light); }
+.c-dot { width:8px; height:8px; border-radius:50%; background:var(--accent); flex-shrink:0; margin-top:8px; box-shadow:0 0 8px rgba(56,189,248,0.4); }
+.c-text strong { display:block; font-size:1.02rem; color:var(--navy); margin-bottom:4px; font-weight:700; }
+.c-text span { font-size:0.92rem; color:var(--gray); line-height:1.65; }
+
+/* ── MARKETS ── */
+.m-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.m-card {
+  background:var(--navy); border-radius:18px; padding:32px 28px;
+  color:var(--white); border:1px solid var(--border);
+  transition:all .3s; position:relative; overflow:hidden;
+}
+.m-card:hover { transform:translateY(-5px); border-color:rgba(56,189,248,0.4); box-shadow:0 16px 40px rgba(26,74,138,0.3); }
+.m-card::before { content:''; position:absolute; top:-60px; right:-60px; width:160px; height:160px; border-radius:50%; pointer-events:none; }
+.m-card:nth-child(1)::before { background:radial-gradient(circle,rgba(56,189,248,0.15),transparent 70%); }
+.m-card:nth-child(2)::before { background:radial-gradient(circle,rgba(139,92,246,0.15),transparent 70%); }
+.m-card:nth-child(3)::before { background:radial-gradient(circle,rgba(16,185,129,0.15),transparent 70%); }
+.m-e { font-size:2rem; margin-bottom:14px; display:block; }
+.m-t { font-family:'Manrope',sans-serif; font-size:1.1rem; font-weight:800; margin-bottom:4px; }
+.m-st { font-size:0.78rem; color:var(--accent); letter-spacing:0.06em; margin-bottom:14px; }
+.m-d { font-size:0.9rem; color:rgba(255,255,255,0.72); line-height:1.7; }
+
+/* ── PRODUCT SECTION ── */
+.slide-dark { background:var(--navy); }
+.slide-dark .s-tag { color:#c4b5fd; }
+.slide-dark .s-tag::before { background:#a78bfa; box-shadow:0 0 8px #a78bfa; }
+.slide-dark .s-title { color:var(--white); }
+.slide-dark .s-body { color:rgba(255,255,255,0.7); }
+.prod-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:28px; }
+.prod-card {
+  background:rgba(255,255,255,0.04); border:1px solid var(--border);
+  border-radius:20px; padding:32px 28px; transition:all .3s;
+  position:relative; overflow:hidden;
+}
+.prod-card:hover { background:rgba(255,255,255,0.07); border-color:rgba(56,189,248,0.35); transform:translateY(-4px); }
+.prod-badge {
+  display:inline-block; font-family:'JetBrains Mono',monospace;
+  font-size:0.65rem; font-weight:600; padding:3px 10px; border-radius:4px;
+  letter-spacing:0.08em; text-transform:uppercase; margin-bottom:16px;
+}
+.prod-badge.sh { background:rgba(56,189,248,0.15); color:var(--accent); border:1px solid rgba(56,189,248,0.3); }
+.prod-badge.hb { background:rgba(16,185,129,0.15); color:#6ee7b7; border:1px solid rgba(16,185,129,0.3); }
+.prod-icon { font-size:2rem; margin-bottom:12px; display:block; }
+.prod-name { font-family:'Manrope',sans-serif; font-size:1.3rem; font-weight:800; color:var(--white); margin-bottom:4px; }
+.prod-models { font-family:'JetBrains Mono',monospace; font-size:0.78rem; color:var(--accent-2); margin-bottom:14px; }
+.prod-desc { font-size:0.92rem; color:rgba(255,255,255,0.68); line-height:1.7; margin-bottom:18px; }
+.prod-specs { list-style:none; border-top:1px dashed rgba(255,255,255,0.12); padding-top:16px; }
+.prod-specs li { font-size:0.85rem; color:rgba(255,255,255,0.6); padding:5px 0 5px 20px; position:relative; }
+.prod-specs li::before { content:'›'; position:absolute; left:4px; color:var(--accent); font-weight:700; }
+.prod-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+.prod-tag { background:rgba(56,189,248,0.1); border:1px solid rgba(56,189,248,0.25); border-radius:14px; padding:5px 14px; font-size:0.78rem; color:var(--accent); }
+
+/* ── ARCH ── */
+.arch-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.arch-card { background:var(--lg); border-radius:18px; padding:28px; border:1px solid transparent; transition:all .3s; }
+.arch-card:hover { border-color:var(--border); box-shadow:0 12px 32px rgba(26,74,138,0.08); }
+.arch-title { font-family:'Manrope',sans-serif; font-size:1.1rem; font-weight:800; color:var(--navy); margin-bottom:4px; }
+.arch-sub { font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--accent); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:16px; }
+.arch-list { list-style:none; }
+.arch-list li { font-size:0.92rem; color:var(--gray); padding:6px 0 6px 20px; position:relative; line-height:1.6; }
+.arch-list li::before { content:''; position:absolute; left:0; top:13px; width:6px; height:6px; border-radius:50%; background:var(--accent); }
+.arch-fn { margin-top:24px; padding:16px 20px; background:var(--light); border-radius:12px; font-size:0.9rem; color:var(--gray); border-left:3px solid var(--gold); }
+
+/* ── SCENARIOS ── */
+.sc-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.sc-card { background:var(--white); border:1px solid #e2e8f0; border-radius:18px; padding:28px 24px; transition:all .3s; position:relative; overflow:hidden; }
+.sc-card:hover { transform:translateY(-4px); border-color:var(--accent); box-shadow:0 18px 40px rgba(26,74,138,0.1); }
+.sc-e { font-size:1.8rem; margin-bottom:12px; display:block; }
+.sc-t { font-family:'Manrope',sans-serif; font-size:1.05rem; font-weight:800; color:var(--navy); margin-bottom:4px; }
+.sc-chip { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.65rem; font-weight:600; padding:2px 8px; border-radius:4px; margin-bottom:12px; }
+.sc-chip.sh200 { background:#dbeafe; color:#1d4ed8; }
+.sc-chip.sh100 { background:#d1fae5; color:#059669; }
+.sc-s { font-size:0.85rem; color:var(--gray); line-height:1.7; }
+.sc-s label { display:block; font-size:0.72rem; color:var(--muted); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:4px; font-weight:600; }
+
+.sc-more {
+  margin-top:28px; padding:20px 24px;
+  background:var(--light); border-radius:14px;
+  border-left:4px solid var(--accent);
+  font-size:0.92rem; color:var(--gray); line-height:1.7;
+}
+.sc-more strong { color:var(--blue); }
+
+/* ── MISSION ── */
+.slide-mission { background:var(--navy); }
+.slide-mission .s-title { color:var(--white); }
+.m-quote { font-family:'Manrope',sans-serif; font-size:1.5rem; font-weight:800; color:var(--accent); margin-bottom:18px; }
+.m-body { font-size:1.02rem; color:rgba(255,255,255,0.78); line-height:1.9; max-width:720px; margin-bottom:32px; }
+.m-tags { display:flex; gap:10px; flex-wrap:wrap; }
+.m-tag { background:rgba(56,189,248,0.1); border:1px solid rgba(56,189,248,0.28); border-radius:22px; padding:7px 18px; font-size:0.82rem; color:var(--accent); font-weight:500; transition:all .2s; }
+.m-tag:hover { background:rgba(56,189,248,0.18); transform:translateY(-2px); }
+
+/* ── CLOSING ── */
+.slide-closing {
+  background:var(--navy);
+  display:flex; align-items:center; justify-content:center;
+  text-align:center; padding:80px 48px;
+}
+.cl-slogan { font-family:'Manrope',sans-serif; font-size:clamp(1.8rem,3.6vw,2.8rem); font-weight:800; color:var(--white); margin-bottom:10px; letter-spacing:-0.02em; }
+.cl-slogan .accent { background:linear-gradient(135deg,#38bdf8 0%,#06b6d4 50%,#818cf8 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+.cl-sub { color:rgba(255,255,255,0.6); font-size:1rem; margin-bottom:36px; }
+.cl-links { display:flex; gap:40px; justify-content:center; flex-wrap:wrap; }
+.cl-link { text-align:center; }
+.cl-link .lbl { font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--muted); letter-spacing:0.14em; text-transform:uppercase; margin-bottom:4px; }
+.cl-link .val { font-size:1.05rem; font-weight:600; color:var(--white); }
+.cl-link .val a { color:var(--accent); text-decoration:none; }
+.cl-link .val a:hover { text-decoration:underline; }
+.cl-brand { margin-top:40px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.08); font-size:0.78rem; color:rgba(255,255,255,0.35); }
+
+/* ── DIVIDER ── */
+.s-div { height:1px; background:linear-gradient(90deg,transparent,#e2e8f0 20%,#e2e8f0 80%,transparent); max-width:1180px; margin:0 auto; }
+.s-div.dark { background:linear-gradient(90deg,transparent,rgba(56,189,248,0.15) 20%,rgba(56,189,248,0.15) 80%,transparent); }
+
+/* ── NAV DOTS ── */
+.nav-dots {
+  position:fixed; top:50%; right:20px; transform:translateY(-50%);
+  z-index:999; display:flex; flex-direction:column; gap:10px;
+}
+.nav-dots a {
+  width:12px; height:12px; border-radius:50%;
+  background:rgba(56,189,248,0.25);
+  border:2px solid transparent;
+  transition:all .25s;
+}
+.nav-dots a:hover, .nav-dots a.active { background:var(--accent); border-color:rgba(56,189,248,0.5); transform:scale(1.2); }
+
+/* ── RESPONSIVE ── */
+@media (max-width:900px) {
+  .s1-inner { grid-template-columns:1fr; gap:40px; padding:80px 24px; text-align:center; }
+  .s1-right { display:none; }
+  .s1-desc { margin-left:auto; margin-right:auto; }
+  .s1-foot { justify-content:center; flex-wrap:wrap; }
+  .s1-badge { margin-left:auto; margin-right:auto; }
+  .slide-inner { padding:72px 24px; }
+  .p-grid, .m-grid, .prod-grid, .arch-grid, .sc-grid { grid-template-columns:1fr; }
+  .c-grid { grid-template-columns:1fr; }
+  .stats { grid-template-columns:1fr; }
+  .stat { border-right:none; border-bottom:1px solid #e2e8f0; }
+  .stat:last-child { border-bottom:none; }
+  .nav-dots { right:10px; }
+  .nav-dots a { width:10px; height:10px; }
+}
+
+.fade-up { opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease; }
+.fade-up.visible { opacity:1; transform:translateY(0); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-container container-center">
+    <div class="nav-logo" onclick="window.location.href='index.html'">
+      <img src="logo.png" alt="Humbo Technology">
+      <div class="brand">
+        <span class="brand-en">HUMBO TECHNOLOGY</span>
+        <span class="brand-zh" data-i18n="nav.brand_zh">瀚渤科技</span>
+      </div>
+    </div>
+    
+    <div class="nav-links">
+      <button onclick="scrollToSlide('s1')" data-i18n="nav.home">首頁</button>
+      <button onclick="scrollToSlide('s2')" data-i18n="nav.about">關於我們</button>
+      <button onclick="scrollToSlide('s3')" data-i18n="nav.tech">核心技術</button>
+      <button onclick="scrollToSlide('s6')" data-i18n="nav.products">產品介紹</button>
+      <button onclick="scrollToSlide('s8')" data-i18n="nav.scenarios">應用案例</button>
+      <button onclick="scrollToSlide('s10')" data-i18n="nav.contact">聯絡我們</button>
+      
+      <div class="lang-switcher" role="group" aria-label="Language">
+        <button data-lang="zh" onclick="setLang('zh')" class="active">中</button>
+        <button data-lang="en" onclick="setLang('en')">EN</button>
+        <button data-lang="ja" onclick="setLang('ja')">日</button>
+      </div>
+    </div>
+    
+    <button class="hamburger-menu" id="hamburgerMenu" onclick="toggleMobileMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══ NAV DOTS ═══ -->
+<div class="nav-dots">
+  <a href="#s1" class="active"></a>
+  <a href="#s2"></a>
+  <a href="#s3"></a>
+  <a href="#s4"></a>
+  <a href="#s5"></a>
+  <a href="#s6"></a>
+  <a href="#s7"></a>
+  <a href="#s8"></a>
+  <a href="#s9"></a>
+  <a href="#s10"></a>
+</div>
+
+<!-- ═══════════════ SLIDE 1: HERO ═══════════════ -->
+<div class="slide s1" id="s1">
+  <div class="s1-bg1"></div>
+  <div class="s1-bg2"></div>
+  <div class="s1-grid"></div>
+  <div class="s1-inner">
+    <div class="s1-left">
+      <div class="s1-badge" data-i18n="s1.badge"><span class="dot"></span>INDEPENDENT DESIGN HOUSE · EST. APR 2026</div>
+      <h1 class="s1-slogan" data-i18n="s1.slogan">Sense <span class="accent">Smarter.</span></h1>
+      <div class="s1-sub" data-i18n="s1.sub">BLE Sensor Hub & SmartBeacon Solutions</div>
+      <p class="s1-desc" data-i18n="s1.desc">Intelligent Sensing for AIoT — 瀚渤科技整合感測、邊緣運算與 BLE 低功耗傳輸，提供從工業多通道感測平台到一次性智慧標籤的完整解決方案。</p>
+      <div class="s1-foot">
+        <span class="left" data-i18n="s1.foot"><strong>Humbo Technology</strong> &nbsp;·&nbsp; 瀚渤科技</span>
+        <span class="s1-sep"></span>
+        <a class="right" href="https://www.humbotech.com">www.humbotech.com</a>
+      </div>
+    </div>
+    <div class="s1-right">
+      <div class="s1-logo">
+        <img src="0-HUMBO%20logo%20%E8%88%87%E5%AD%97(%E9%80%8F%E6%98%8E%E8%83%8C%E6%99%AF)_0.png" alt="Humbo Technology Logo" style="position:relative;z-index:1;width:85%;height:auto;filter:drop-shadow(0 8px 28px rgba(56,189,248,0.22));border-radius:16px;">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ SLIDE 2: ABOUT ═══════════════ -->
+<div class="slide" id="s2">
+  <div class="slide-inner">
+    <div class="s-tag" data-i18n="s2.tag">ABOUT US</div>
+    <h2 class="s-title" data-i18n="s2.title">Intelligence Begins <span class="accent">at the Sensor</span></h2>
+    <p class="s-body fade-up" data-i18n="s2.body">
+      Founded in April 2026, Humbo Technology is an independent design house specializing in BLE smart sensing solutions. We deliver two product lines: the <strong>SH-100/SH-200 BLE Sensor Hub</strong> — a multi-channel modular sensing platform with Edge AI processing — and the <strong>HB100/HB120 SmartBeacon</strong> — an ultra-low-cost, no-code BLE beacon for disposable smart label applications. We serve clients in cold chain logistics, smart manufacturing, smart buildings, healthcare, and smart city segments across Taiwan and Japan.
+    </p>
+    <div class="stats fade-up">
+      <div class="stat">
+        <span class="stat-num">2026.04</span>
+        <span class="stat-lbl" data-i18n="s2.sl1">Founded</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">2</span>
+        <span class="stat-lbl" data-i18n="s2.sl2">Product Lines</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">2026 Q3</span>
+        <span class="stat-lbl" data-i18n="s2.sl3">First Sample</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="s-div"></div>
+
+<!-- ═══════════════ SLIDE 3: CORE TECH ═══════════════ -->
+<div class="slide" id="s3">
+  <div class="slide-inner">
+    <div class="s-tag" data-i18n="s3.tag">CORE TECHNOLOGY</div>
+    <h2 class="s-title" data-i18n="s3.title">Integrated <span class="accent">Sense · Compute · Transmit</span></h2>
+    <p class="s-body fade-up" data-i18n="s3.body">Our BLE IC platform integrates sensing, edge processing, and wireless transmission into a single chip — dramatically reducing system complexity, power consumption, and time-to-market.</p>
+    <div class="p-grid">
+      <div class="p-card fade-up">
+        <div class="p-char">S</div>
+        <div class="p-name" data-i18n="s3.p1n">Multi-Channel Sensing</div>
+        <div class="p-en">SENSING</div>
+        <div class="p-desc" data-i18n="s3.p1d">Drives up to 8 flexible sensor channels via I²C/GPIO — supporting temperature, humidity, vibration, CO₂, PM2.5, PIR, and more — from a single BLE IC.</div>
+      </div>
+      <div class="p-card fade-up">
+        <div class="p-char">C</div>
+        <div class="p-name" data-i18n="s3.p2n">Edge AI Processing</div>
+        <div class="p-en">EDGE AI</div>
+        <div class="p-desc" data-i18n="s3.p2d">Deploys on-device classification and threshold-based inference, enabling real-time anomaly detection with zero cloud dependency for instant response.</div>
+      </div>
+      <div class="p-card fade-up">
+        <div class="p-char">T</div>
+        <div class="p-name" data-i18n="s3.p3n">Ultra-Low Power BLE</div>
+        <div class="p-en">BLE TRANSMISSION</div>
+        <div class="p-desc" data-i18n="s3.p3d">BLE technology delivers years of battery life from a single coin cell. Supports long-range mode (>300m) and mesh networking for dense deployments.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="s-div"></div>
+
+<!-- ═══════════════ SLIDE 4: WHY HUMBO ═══════════════ -->
+<div class="slide" id="s4">
+  <div class="slide-inner">
+    <div class="s-tag" data-i18n="s4.tag">KEY CAPABILITIES</div>
+    <h2 class="s-title" data-i18n="s4.title">Why <span class="accent">Humbo Technology</span></h2>
+    <div class="c-grid">
+      <div class="c-item fade-up">
+        <div class="c-dot"></div>
+        <div class="c-text">
+          <strong data-i18n="s4.c1t">Dual Product Lines</strong>
+          <span data-i18n="s4.c1d">From multi-channel sensor hubs to disposable smart labels — our SH and HB series cover the full spectrum of BLE sensing needs.</span>
+        </div>
+      </div>
+      <div class="c-item fade-up">
+        <div class="c-dot"></div>
+        <div class="c-text">
+          <strong data-i18n="s4.c2t">No-Code SmartBeacon</strong>
+          <span data-i18n="s4.c2d">HB100/HB120 requires zero firmware development. Pre-programmed with configurable advertising intervals, sensor sampling, and data logging.</span>
+        </div>
+      </div>
+      <div class="c-item fade-up">
+        <div class="c-dot"></div>
+        <div class="c-text">
+          <strong data-i18n="s4.c3t">Modular Sensor Hub</strong>
+          <span data-i18n="s4.c3d">SH-100 (2-ch) and SH-200 (8-ch) with flexible I²C/GPIO expansion. Built-in data logging, edge classification, and BLE long-range mesh.</span>
+        </div>
+      </div>
+      <div class="c-item fade-up">
+        <div class="c-dot"></div>
+        <div class="c-text">
+          <strong data-i18n="s4.c4t">Companion Mobile App</strong>
+          <span data-i18n="s4.c4d">In-house mobile app pairs directly with both product families — no customer-side integration headaches. Real-time dashboard, alerts, and OTA config.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="s-div"></div>
+
+<!-- ═══════════════ SLIDE 5: MARKETS ═══════════════ -->
+<div class="slide" id="s5">
+  <div class="slide-inner">
+    <div class="s-tag" data-i18n="s5.tag">TARGET MARKETS</div>
+    <h2 class="s-title" data-i18n="s5.title">Industry <span class="accent">Applications</span></h2>
+    <div class="m-grid">
+      <div class="m-card fade-up">
+        <span class="m-e">🧊</span>
+        <div class="m-t" data-i18n="s5.m1t">Cold Chain & Logistics</div>
+        <div class="m-st" data-i18n="s5.m1s">Pharma · Food · Perishables</div>
+        <div class="m-d" data-i18n="s5.m1d">Multi-sensor monitoring (temp, humidity, vibration, door) with data logging and BLE long-range. Reduces spoilage 15–25%. Global cold chain logistics market exceeds $300B.</div>
+      </div>
+      <div class="m-card fade-up">
+        <span class="m-e">⚙️</span>
+        <div class="m-t" data-i18n="s5.m2t">Smart Manufacturing</div>
+        <div class="m-st" data-i18n="s5.m2s">Predictive Maintenance · Traceability</div>
+        <div class="m-d" data-i18n="s5.m2d">Vibration + temperature edge monitoring for predictive maintenance. BLE-based production line tracking for real-time WIP visibility. Predictive maintenance market projected at $28B by 2026.</div>
+      </div>
+      <div class="m-card fade-up">
+        <span class="m-e">🏢</span>
+        <div class="m-t" data-i18n="s5.m3t">Smart Building & City</div>
+        <div class="m-st" data-i18n="s5.m3s">HVAC · Environmental Monitoring</div>
+        <div class="m-d" data-i18n="s5.m3d">BLE mesh occupancy-based HVAC control (25–35% energy savings). Dense air quality sensor networks for smart city applications. Global smart building market exceeds $150B by 2026.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="s-div dark"></div>
+
+<!-- ═══════════════ SLIDE 6: PRODUCT ═══════════════ -->
+<div class="slide slide-dark" id="s6">
+  <div class="s1-bg1" style="width:600px;height:600px;top:-300px;right:-200px;"></div>
+  <div class="slide-inner">
+    <div class="s-tag" data-i18n="s6.tag">PRODUCT PORTFOLIO · 2026</div>
+    <h2 class="s-title"><span data-i18n="s6.t1">Two Product Families,</span><br><span class="accent" data-i18n="s6.t2">One Platform</span></h2>
+    <p class="s-body" data-i18n="s6.tagline">From Multi-Channel Hubs to Disposable Smart Labels</p>
+    <div class="prod-grid">
+      <div class="prod-card fade-up">
+        <span class="prod-badge sh">SH SERIES</span>
+        <span class="prod-icon">🎛️</span>
+        <div class="prod-name" data-i18n="s6.p1n">BLE <span style="color:#fff">Sensor Hub</span></div>
+        <div class="prod-models">SH-100 · SH-200</div>
+        <div class="prod-desc" data-i18n="s6.p1d">Multi-channel modular sensing platform with 2–8 flexible sensor channels, Edge AI classification, data logging (>30 days), and BLE long-range / mesh networking. Ideal for industrial and commercial IoT deployments.</div>
+        <ul class="prod-specs">
+          <li>2–8 flexible I²C/GPIO sensor channels</li>
+          <li>On-device Edge AI classification</li>
+          <li>Built-in Data Logging (>30 days offline)</li>
+          <li>BLE Long Range (>300m) & Mesh support</li>
+          <li>Years of battery life from coin cell</li>
+        </ul>
+        <div class="prod-tags">
+          <span class="prod-tag">Industrial IoT</span>
+          <span class="prod-tag">Cold Chain</span>
+          <span class="prod-tag">Smart Building</span>
+          <span class="prod-tag">Predictive Maintenance</span>
+        </div>
+      </div>
+      <div class="prod-card fade-up">
+        <span class="prod-badge hb">HB SERIES</span>
+        <span class="prod-icon">🏷️</span>
+        <div class="prod-name" data-i18n="s6.p2n"><span style="color:#fff">Smart</span>Beacon</div>
+        <div class="prod-models">HB100 · HB120</div>
+        <div class="prod-desc" data-i18n="s6.p2d">Ultra-low-cost BLE advertising tag for disposable smart label applications. HB120 adds ±1°C temperature sensing and data logging. Pre-programmed — no firmware development required. Just configure and deploy.</div>
+        <ul class="prod-specs">
+          <li>Zero firmware development — pre-programmed</li>
+          <li>Configurable advertising interval</li>
+          <li>Built-in temperature sensor (±1°C, HB120)</li>
+          <li>Data Logging capability (HB120)</li>
+          <li>Open/close detection support</li>
+        </ul>
+        <div class="prod-tags">
+          <span class="prod-tag">Disposable Label</span>
+          <span class="prod-tag">Healthcare</span>
+          <span class="prod-tag">Logistics</span>
+          <span class="prod-tag">Consumer</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="s-div dark"></div>
+
+<!-- ═══════════════ SLIDE 7: ARCH ═══════════════ -->
+<div class="slide" id="s7">
+  <div class="slide-inner">
+    <div class="s-tag" data-i18n="s7.tag">ARCHITECTURE</div>
+    <h2 class="s-title" data-i18n="s7.title">Product Architecture <span class="accent">Overview</span></h2>
+    <div class="arch-grid">
+      <div class="arch-card fade-up">
+        <div class="arch-title" data-i18n="s7.a1t">BLE Sensor Hub</div>
+        <div class="arch-sub">SH-100 / SH-200</div>
+        <ul class="arch-list">
+          <li>Multi-Channel I²C sensor interface (2–8 channels)</li>
+          <li>Edge AI on-device classification (Normal / Warning / Critical)</li>
+          <li>Data Logging — &gt;30 days offline storage</li>
+          <li>BLE Long Range (&gt;300m) &amp; Mesh networking</li>
+          <li>Programmable thresholds for each channel</li>
+          <li>Coin-cell or external power options</li>
+        </ul>
+      </div>
+      <div class="arch-card fade-up">
+        <div class="arch-title" data-i18n="s7.a2t">SmartBeacon</div>
+        <div class="arch-sub">HB100 / HB120</div>
+        <ul class="arch-list">
+          <li>BLE advertising tag — no pairing required</li>
+          <li>Pre-programmed firmware — zero code</li>
+          <li>Built-in temperature sensor (HB120, ±1°C)</li>
+          <li>Open/close detection via magnetic or capacitive sensing</li>
+          <li>Data Logging for temperature history (HB120)</li>
+          <li>Ultra-thin form factor (&lt;0.8mm for label integration)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="arch-fn">
+      <strong>🔋 Coin Cell Battery</strong> — All products are designed for years of battery life from standard coin cell batteries (CR2032, CR1220). No recharging, no wiring.
+    </div>
+  </div>
+</div>
+
+<div class="s-div"></div>
+
+<!-- ═══════════════ SLIDE 8: SCENARIOS ═══════════════ -->
+<div class="slide" id="s8">
+  <div class="slide-inner">
+    <div class="s-tag" data-i18n="s8.tag">APPLICATION SCENARIOS</div>
+    <h2 class="s-title" data-i18n="s8.title">Real-World <span class="accent">Use Cases</span></h2>
+    <div class="sc-grid">
+      <div class="sc-card fade-up">
+        <span class="sc-e">🧊</span>
+        <div class="sc-t" data-i18n="s8.sc1t">Cold Chain Monitoring</div>
+        <span class="sc-chip sh200">SH-200</span>
+        <div class="sc-s"><label>Recommended Sensors</label>Temperature · Humidity · Vibration · Door Sensor</div>
+      </div>
+      <div class="sc-card fade-up">
+        <span class="sc-e">⚙️</span>
+        <div class="sc-t" data-i18n="s8.sc2t">Predictive Maintenance</div>
+        <span class="sc-chip sh200">SH-200</span>
+        <div class="sc-s"><label>Recommended Sensors</label>Vibration · Temperature · Edge AI Classification</div>
+      </div>
+      <div class="sc-card fade-up">
+        <span class="sc-e">🏢</span>
+        <div class="sc-t" data-i18n="s8.sc3t">Smart Building HVAC</div>
+        <span class="sc-chip sh100">SH-100</span>
+        <div class="sc-s"><label>Recommended Sensors</label>Temperature · CO₂ · PIR · BLE Mesh</div>
+      </div>
+    </div>
+    <div class="sc-more" data-i18n="s8.more">
+      <strong>More Scenarios:</strong> The SH/SB platform also enables <strong>Environmental Monitoring Networks</strong> (urban air quality, SH-100 + PM2.5 + solar), <strong>Smart Band-aid</strong> (wound temperature monitoring, HB120), <strong>Clinical Trial Compliance</strong> (medication adherence + temperature logging, HB120), <strong>Smart Waste Bin</strong> (fill-level monitoring, HB100), and many more.
+    </div>
+  </div>
+</div>
+
+<div class="s-div"></div>
+
+<!-- ═══════════════ SLIDE 9: MISSION ═══════════════ -->
+<div class="slide slide-mission" id="s9">
+  <div class="s1-bg1" style="width:500px;height:500px;top:-200px;right:-100px;"></div>
+  <div class="slide-inner">
+    <div class="s-tag" data-i18n="s9.tag">MISSION & VISION</div>
+    <div class="m-quote" data-i18n="s9.quote">&ldquo;Reliable. Efficient. Intelligent.&rdquo;</div>
+    <p class="m-body" data-i18n="s9.body">
+      Humbo Technology is on a mission to democratize intelligent sensing. We believe every physical asset — from cold chain containers to hospital bandages — deserves affordable, real-time sensing. By combining multi-channel modular hardware with ultra-low-cost beacon technology, we make AIoT sensing practical at scale.
+    </p>
+    <div class="m-tags">
+      <span class="m-tag" data-i18n="s9.t1">Long-Term Partner</span>
+      <span class="m-tag" data-i18n="s9.t2">Technical Integration</span>
+      <span class="m-tag" data-i18n="s9.t3">Modular Design</span>
+      <span class="m-tag" data-i18n="s9.t4">App Integration</span>
+      <span class="m-tag" data-i18n="s9.t5">AIoT Enablement</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ SLIDE 10: CLOSING ═══════════════ -->
+<div class="slide slide-closing" id="s10">
+  <div class="s1-bg1" style="width:600px;height:600px;top:-200px;right:-50px;"></div>
+  <div class="s1-bg2" style="width:500px;height:500px;bottom:-200px;left:-50px;"></div>
+  <div class="s1-grid"></div>
+  <div style="position:relative;z-index:1;">
+    <div class="cl-slogan" data-i18n="s10.slogan">Let's Make Sensing <span class="accent">Smarter</span>, Together.</div>
+    <p class="cl-sub" data-i18n="s10.sub">Get early access to BLE Sensor Hub & SmartBeacon engineering samples</p>
+    <div class="cl-links">
+      <div class="cl-link">
+        <div class="lbl" data-i18n="s10.wl">WEBSITE</div>
+        <div class="val"><a href="https://www.humbotech.com">www.humbotech.com</a></div>
+      </div>
+      <div class="cl-link">
+        <div class="lbl" data-i18n="s10.cl">CONTACT</div>
+        <div class="val"><a href="mailto:contact@humbotech.com">contact@humbotech.com</a></div>
+      </div>
+    </div>
+    <div class="cl-brand" data-i18n="s10.brand">© 2026 Humbo Technology Inc. · Independent Design House · All Rights Reserved.</div>
+  </div>
+</div>
+
+<script>
+// ── Nav dots ──
+const dots = document.querySelectorAll('.nav-dots a');
+const slides = document.querySelectorAll('.slide');
+function updateDots() {
+  let cur = 0;
+  slides.forEach((s, i) => {
+    const r = s.getBoundingClientRect();
+    if (r.top <= window.innerHeight / 2) cur = i;
+  });
+  dots.forEach((a, i) => a.classList.toggle('active', i === cur));
+}
+window.addEventListener('scroll', updateDots);
+updateDots();
+
+// ── Fade up ──
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+// ── i18n ──
+const I18N = {zh:{},en:{},ja:{}};
+
+// ====== ZH ======
+I18N.zh = {
+  'title': '瀚渤科技 Humbo Technology — Sense Smarter.',
+  's1.badge': '獨立設計公司 · 2026 年 4 月成立',
+  's1.slogan': 'Sense <span class="accent">Smarter.</span>',
+  's1.sub': 'BLE Sensor Hub 與 SmartBeacon 解決方案',
+  's1.desc': '瀚渤科技整合感測、邊緣運算與 BLE 低功耗傳輸，提供從工業多通道感測平台到一次性智慧標籤的完整解決方案。',
+  's1.foot': '<strong>瀚渤科技</strong> &nbsp;·&nbsp; Humbo Technology',
+  's2.tag': '關於 我們',
+  's2.title': '智慧始於<span class="accent">感測</span>',
+  's2.body': '瀚渤科技成立於 2026 年 4 月，是專注於 BLE 智慧感測解決方案的獨立設計公司。我們提供兩大產品線：<strong>SH-100/SH-200 BLE Sensor Hub</strong> 多通道模組化感測平台（搭載 Edge AI），以及 <strong>HB100/HB120 SmartBeacon</strong> 超低成本免編碼 BLE 標籤。服務涵蓋冷鏈物流、智慧製造、智慧建築、醫療與智慧城市領域，主要市場為台灣與日本。',
+  's2.sl1': '成立', 's2.sl2': '產品線', 's2.sl3': '首款樣品',
+  's3.tag': '核心 技術',
+  's3.title': '感 · 算 · 傳 <span class="accent">一體整合</span>',
+  's3.body': '我們的 BLE IC 平台將感測、邊緣處理與無線傳輸整合於單一晶片，大幅降低系統複雜度、功耗與上市時間。',
+  's3.p1n': '多通道感測', 's3.p1d': '單顆 BLE IC 驅動最多 8 通道感測器（I²C/GPIO），支援溫度、濕度、振動、CO₂、PM2.5、PIR 等，彈性配置滿足多元應用。',
+  's3.p2n': '邊緣 AI 處理', 's3.p2d': '裝置端即時分類與閾值判斷，實現零雲端依賴的異常檢測，毫秒級反應速度，適合工業級即時監控。',
+  's3.p3n': '超低功耗 BLE', 's3.p3d': '單顆鈕扣電池供電長達數年，支援 BLE Long Range 模式（&gt;300m）及 Mesh 組網，適用大規模密集部署。',
+  's4.tag': '關鍵 能力',
+  's4.title': '為何選擇<span class="accent">瀚渤</span>',
+  's4.c1t': '雙產品線佈局', 's4.c1d': '從多通道感測平台到一次性智慧標籤，SH 與 HB 系列完整涵蓋 BLE 感測需求的不同層級。',
+  's4.c2t': '免編碼 SmartBeacon', 's4.c2d': 'HB100/HB120 無需韌體開發，出廠預先配置廣播間隔、感測取樣與 Data Logging，隨取即用。',
+  's4.c3t': '模組化 Sensor Hub', 's4.c3d': 'SH-100（2 通道）與 SH-200（8 通道），彈性 I²C/GPIO 擴充，內建 Data Logging、邊緣分類與 BLE 長距離傳輸。',
+  's4.c4t': '搭配手機 App', 's4.c4d': '自有手機 App 直接對接兩大產品線，免去客戶端整合負擔，提供即時儀表板、警報與 OTA 配置功能。',
+  's5.tag': '目標 市場',
+  's5.title': '產業<span class="accent">應用場景</span>',
+  's5.m1t': '冷鏈物流', 's5.m1s': '醫藥 · 食品 · 生鮮', 's5.m1d': '多感測監控（溫度、濕度、振動、門磁），內建 Data Logging 與 BLE 長距離傳輸，減少貨損 15–25%。全球冷鏈物流市場超過 3,000 億美元。',
+  's5.m2t': '智慧製造', 's5.m2s': '預測維護 · 產線追蹤', 's5.m2d': '振動 + 溫度邊緣監控實現設備預測維護。BLE 產線追蹤提供即時在製品可視化。預測維護市場 2026 年預計達 280 億美元。',
+  's5.m3t': '智慧建築與城市', 's5.m3s': 'HVAC 節能 · 環境監測', 's5.m3d': 'BLE mesh occupancy 動態 HVAC 調控（節能 25–35%）。高密度空氣品質感測網絡支援智慧城市應用。全球智慧建築市場 2026 年超過 1,500 億美元。',
+  's6.tag': '產品組合 · 2026',
+  's6.t1': '兩大產品線，', 's6.t2': '<span class="accent">一個平台</span>',
+  's6.tagline': '從多通道感測平台到一次性智慧標籤',
+  's6.p1n': 'BLE <span style="color:#fff">Sensor Hub</span>', 's6.p1d': '多通道模組化感測平台，具備 2–8 通道彈性感測介面、Edge AI 邊緣分類、Data Logging（&gt;30 天）與 BLE 長距離／Mesh 網路，適合工業與商業 IoT 部署。',
+  's6.p2n': '<span style="color:#fff">Smart</span>Beacon', 's6.p2d': '超低成本 BLE 主動廣播標籤，適用一次性智慧標籤應用。HB120 增加 ±1°C 溫度感測與 Data Logging。出廠預先配置，無需任何韌體開發。',
+  's7.tag': '產品 架構',
+  's7.title': '產品架構<span class="accent">總覽</span>',
+  's7.a1t': 'BLE 感測平台', 's7.a2t': '智慧標籤',
+  's8.tag': '應用 場景',
+  's8.title': '實際<span class="accent">應用案例</span>',
+  's8.sc1t': '冷鏈物流監控', 's8.sc2t': '預測維護', 's8.sc3t': '智慧建築 HVAC',
+  's8.more': '<strong>更多場景：</strong>SH/SB 平台亦可實現 <strong>環境監測網絡</strong>（城市空氣品質、SH-100 + PM2.5 + 太陽能）、<strong>智慧 OK 繃</strong>（傷口溫度監測、HB120）、<strong>臨床試驗遵從性</strong>（用藥記錄 + 溫度監測、HB120）、<strong>智慧垃圾桶</strong>（滿度監測、HB100）等更多應用。',
+  's9.tag': '使命 與 願景',
+  's9.quote': '「可靠。高效。智慧。」',
+  's9.body': '瀚渤科技的使命是讓智慧感測普及化。我們相信每一個實體資產 — 從冷鏈貨櫃到醫院紗布 — 都值得擁有即時且可負擔的感測能力。透過結合多通道模組化硬體與超低成本標籤技術，我們讓 AIoT 感測在大規模部署時也能切實可行。',
+  's9.t1': '長期合作夥伴', 's9.t2': '技術整合支援', 's9.t3': '模組化設計', 's9.t4': 'App 整合', 's9.t5': 'AIoT 賦能',
+  's10.slogan': '讓感測更<span class="accent">智慧</span>，一起來。',
+  's10.sub': '立即申請 BLE Sensor Hub 與 SmartBeacon 工程樣品',
+  's10.wl': '官方網站', 's10.cl': '聯絡我們',
+  's10.brand': '© 2026 瀚渤科技股份有限公司 · Independent Design House · 版權所有',
+  'nav.brand_zh': '瀚渤科技',
+  'nav.home': '首頁',
+  'nav.about': '關於我們',
+  'nav.tech': '核心技術',
+  'nav.products': '產品介紹',
+  'nav.scenarios': '應用案例',
+  'nav.contact': '聯絡我們',
+};
+
+// ====== EN ======
+I18N.en = {
+  'title': 'Humbo Technology — Sense Smarter.',
+  's1.badge': 'INDEPENDENT DESIGN HOUSE · EST. APR 2026',
+  's1.slogan': 'Sense <span class="accent">Smarter.</span>',
+  's1.sub': 'BLE Sensor Hub & SmartBeacon Solutions',
+  's1.desc': 'Intelligent Sensing for AIoT — Humbo Technology integrates sensing, edge computing, and BLE low-power transmission, delivering complete solutions from industrial multi-channel sensor platforms to disposable smart labels.',
+  's1.foot': '<strong>Humbo Technology</strong> &nbsp;·&nbsp; 瀚渤科技',
+  's2.tag': 'ABOUT US',
+  's2.title': 'Intelligence Begins <span class="accent">at the Sensor</span>',
+  's2.body': 'Founded in April 2026, Humbo Technology is an independent design house specializing in BLE smart sensing solutions. We deliver two product lines: the <strong>SH-100/SH-200 BLE Sensor Hub</strong> — a multi-channel modular sensing platform with Edge AI — and the <strong>HB100/HB120 SmartBeacon</strong> — an ultra-low-cost, no-code BLE beacon for disposable smart label applications. We serve clients in cold chain, smart manufacturing, smart building, healthcare, and smart city segments across Taiwan and Japan.',
+  's2.sl1': 'Founded', 's2.sl2': 'Product Lines', 's2.sl3': 'First Sample',
+  's3.tag': 'CORE TECHNOLOGY',
+  's3.title': 'Integrated <span class="accent">Sense · Compute · Transmit</span>',
+  's3.body': 'Our BLE IC platform integrates sensing, edge processing, and wireless transmission into a single chip — dramatically reducing system complexity, power consumption, and time-to-market.',
+  's3.p1n': 'Multi-Channel Sensing', 's3.p1d': 'Drives up to 8 flexible sensor channels via I²C/GPIO — supporting temperature, humidity, vibration, CO₂, PM2.5, PIR, and more — from a single BLE IC.',
+  's3.p2n': 'Edge AI Processing', 's3.p2d': 'Deploys on-device classification and threshold-based inference, enabling real-time anomaly detection with zero cloud dependency for instant response.',
+  's3.p3n': 'Ultra-Low Power BLE', 's3.p3d': 'BLE technology delivers years of battery life from a single coin cell. Supports long-range mode (&gt;300m) and mesh networking for dense deployments.',
+  's4.tag': 'KEY CAPABILITIES',
+  's4.title': 'Why <span class="accent">Humbo Technology</span>',
+  's4.c1t': 'Dual Product Lines', 's4.c1d': 'From multi-channel sensor hubs to disposable smart labels — our SH and HB series cover the full spectrum of BLE sensing needs.',
+  's4.c2t': 'No-Code SmartBeacon', 's4.c2d': 'HB100/HB120 requires zero firmware development. Pre-programmed with configurable advertising intervals, sensor sampling, and data logging.',
+  's4.c3t': 'Modular Sensor Hub', 's4.c3d': 'SH-100 (2-ch) and SH-200 (8-ch) with flexible I²C/GPIO expansion. Built-in data logging, edge classification, and BLE long-range mesh.',
+  's4.c4t': 'Companion Mobile App', 's4.c4d': 'In-house mobile app pairs directly with both product families — no customer-side integration. Real-time dashboard, alerts, and OTA config.',
+  's5.tag': 'TARGET MARKETS',
+  's5.title': 'Industry <span class="accent">Applications</span>',
+  's5.m1t': 'Cold Chain & Logistics', 's5.m1s': 'Pharma · Food · Perishables', 's5.m1d': 'Multi-sensor monitoring (temp, humidity, vibration, door) with data logging and BLE long-range. Reduces spoilage 15–25%. Global cold chain logistics market exceeds $300B.',
+  's5.m2t': 'Smart Manufacturing', 's5.m2s': 'Predictive Maintenance · Traceability', 's5.m2d': 'Vibration + temperature edge monitoring for predictive maintenance. BLE-based production line tracking for real-time WIP visibility. Market projected at $28B by 2026.',
+  's5.m3t': 'Smart Building & City', 's5.m3s': 'HVAC · Environmental Monitoring', 's5.m3d': 'BLE mesh occupancy-based HVAC control (25–35% energy savings). Dense air quality sensor networks for smart city applications. Global smart building market exceeds $150B by 2026.',
+  's6.tag': 'PRODUCT PORTFOLIO · 2026',
+  's6.t1': 'Two Product Families,', 's6.t2': '<span class="accent">One Platform</span>',
+  's6.tagline': 'From Multi-Channel Hubs to Disposable Smart Labels',
+  's6.p1n': 'BLE <span style="color:#fff">Sensor Hub</span>', 's6.p1d': 'Multi-channel modular sensing platform with 2–8 flexible sensor channels, Edge AI classification, data logging (&gt;30 days), and BLE long-range / mesh networking. Ideal for industrial and commercial IoT deployments.',
+  's6.p2n': '<span style="color:#fff">Smart</span>Beacon', 's6.p2d': 'Ultra-low-cost BLE advertising tag for disposable smart label applications. HB120 adds ±1°C temperature sensing and data logging. Pre-programmed — no firmware development required.',
+  's7.tag': 'ARCHITECTURE',
+  's7.title': 'Product Architecture <span class="accent">Overview</span>',
+  's7.a1t': 'BLE Sensor Hub', 's7.a2t': 'SmartBeacon',
+  's8.tag': 'APPLICATION SCENARIOS',
+  's8.title': 'Real-World <span class="accent">Use Cases</span>',
+  's8.sc1t': 'Cold Chain Monitoring', 's8.sc2t': 'Predictive Maintenance', 's8.sc3t': 'Smart Building HVAC',
+  's8.more': '<strong>More Scenarios:</strong> The SH/SB platform also enables <strong>Environmental Monitoring Networks</strong> (urban air quality, SH-100 + PM2.5 + solar), <strong>Smart Band-aid</strong> (wound temperature monitoring, HB120), <strong>Clinical Trial Compliance</strong> (medication adherence + temperature logging, HB120), <strong>Smart Waste Bin</strong> (fill-level monitoring, HB100), and many more.',
+  's9.tag': 'MISSION & VISION',
+  's9.quote': '&ldquo;Reliable. Efficient. Intelligent.&rdquo;',
+  's9.body': 'Humbo Technology is on a mission to democratize intelligent sensing. We believe every physical asset — from cold chain containers to hospital bandages — deserves affordable, real-time sensing. By combining multi-channel modular hardware with ultra-low-cost beacon technology, we make AIoT sensing practical at scale.',
+  's9.t1': 'Long-Term Partner', 's9.t2': 'Technical Integration', 's9.t3': 'Modular Design', 's9.t4': 'App Integration', 's9.t5': 'AIoT Enablement',
+  's10.slogan': 'Let&#39;s Make Sensing <span class="accent">Smarter</span>, Together.',
+  's10.sub': 'Get early access to BLE Sensor Hub & SmartBeacon samples',
+  's10.wl': 'WEBSITE', 's10.cl': 'CONTACT',
+  's10.brand': '© 2026 Humbo Technology Inc. · Independent Design House · All Rights Reserved.',
+  'nav.brand_zh': '瀚渤科技',
+  'nav.home': 'Home',
+  'nav.about': 'About Us',
+  'nav.tech': 'Technology',
+  'nav.products': 'Products',
+  'nav.scenarios': 'Scenarios',
+  'nav.contact': 'Contact Us',
+};
+
+// ====== JA ======
+I18N.ja = {
+  'title': 'Humbo Technology — Sense Smarter.',
+  's1.badge': '独立系デザインハウス · 2026年4月設立',
+  's1.slogan': 'Sense <span class="accent">Smarter.</span>',
+  's1.sub': 'BLE Sensor Hub & SmartBeacon ソリューション',
+  's1.desc': 'Humbo Technology（瀚渤科技）はセンシング、エッジAI、BLE低消費電力通信を統合し、産業用マルチチャンネルセンシングプラットフォームから使い捨てスマートラベルまでを提供します。',
+  's1.foot': '<strong>Humbo Technology</strong> &nbsp;·&nbsp; 瀚渤科技',
+  's2.tag': '会社概要',
+  's2.title': 'インテリジェンスは<span class="accent">センサーから</span>',
+  's2.body': 'Humbo Technology（瀚渤科技）は2026年4月に設立された、BLEスマートセンシングソリューションに特化した独立系デザインハウスです。<strong>SH-100/SH-200 BLE Sensor Hub</strong>（マルチチャンネルモジュラープラットフォーム、Edge AI対応）と、<strong>HB100/HB120 SmartBeacon</strong>（超低価格・ノーコードBLEタグ）の2製品ラインを提供。コールドチェーン、スマートマニュファクチャリング、スマートビル、ヘルスケア、スマートシティ分野で台湾・日本市場を中心に展開しています。',
+  's2.sl1': '設立', 's2.sl2': '製品ライン', 's2.sl3': '初回サンプル',
+  's3.tag': 'コア技術',
+  's3.title': '<span class="accent">センシング · エッジAI · BLE</span> の統合',
+  's3.body': 'BLE ICプラットフォームがセンシング、エッジ処理、無線伝送を1つのチップに統合。システムの複雑さ、消費電力、市場投入時間を大幅に削減します。',
+  's3.p1n': 'マルチチャンネルセンシング', 's3.p1d': '1つのBLE ICで最大8チャンネルのセンサー（I²C/GPIO）を駆動。温度、湿度、振動、CO₂、PM2.5、PIRなど多彩なセンサーに対応。',
+  's3.p2n': 'エッジ AI 処理', 's3.p2d': 'デバイス上でリアルタイム分類と閾値判定を実行。クラウド非依存の異常検知をミリ秒単位で実現。',
+  's3.p3n': '超低消費電力 BLE', 's3.p3d': 'ボタン電池1個で数年動作。Long Rangeモード（&gt;300m）とMeshネットワーキングに対応し、大規模展開に最適。',
+  's4.tag': '主要能力',
+  's4.title': 'Humbo Technology <span class="accent">を選ぶ理由</span>',
+  's4.c1t': '2つの製品ライン', 's4.c1d': 'マルチチャンネルセンシングプラットフォームから使い捨てスマートラベルまで、SH/HBシリーズがBLEセンシングの全領域をカバー。',
+  's4.c2t': 'ノーコード SmartBeacon', 's4.c2d': 'HB100/HB120はファームウェア開発不要。出荷時に広告間隔、センサーサンプリング、データロギングをプリセット。',
+  's4.c3t': 'モジュラー Sensor Hub', 's4.c3d': 'SH-100（2ch）・SH-200（8ch）、フレキシブルなI²C/GPIO拡張。データロギング、エッジ分類、BLE長距離通信を内蔵。',
+  's4.c4t': 'モバイルアプリ付属', 's4.c4d': '自社製モバイルアプリが両製品ラインに直接対応。リアルタイムダッシュボード、アラート、OTA設定を提供。',
+  's5.tag': 'ターゲット市場',
+  's5.title': '産業<span class="accent">アプリケーション</span>',
+  's5.m1t': 'コールドチェーン物流', 's5.m1s': '医薬 · 食品 · 生鮮', 's5.m1d': 'マルチセンサー監視（温度、湿度、振動、ドア）、データロギング、BLE長距離通信。損傷率を15～25%削減。世界のコールドチェーン市場は3,000億ドル超。',
+  's5.m2t': 'スマートマニュファクチャリング', 's5.m2s': '予知保全 · 生産追跡', 's5.m2d': '振動＋温度のエッジ監視で予知保全を実現。BLEによる生産ライン追跡でWIPをリアルタイム可視化。予知保全市場は2026年に280億ドル予測。',
+  's5.m3t': 'スマートビル＆シティ', 's5.m3s': 'HVAC · 環境モニタリング', 's5.m3d': 'BLE Mesh空調制御（25～35%省エネ）。高密度大気質センサーネットワークでスマートシティを支援。世界のスマートビル市場は2026年に1,500億ドル超。',
+  's6.tag': '製品ポートフォリオ · 2026',
+  's6.t1': '2つの製品ファミリー、', 's6.t2': '<span class="accent">1つのプラットフォーム</span>',
+  's6.tagline': 'マルチチャンネルハブから使い捨てスマートラベルまで',
+  's6.p1n': 'BLE <span style="color:#fff">Sensor Hub</span>', 's6.p1d': '2～8chのフレキシブルセンサーチャンネル、エッジAI分類、データロギング（&gt;30日）、BLE長距離／Meshネットワーキングを備えたマルチチャンネルモジュラーセンシングプラットフォーム。',
+  's6.p2n': '<span style="color:#fff">Smart</span>Beacon', 's6.p2d': '超低コストBLE広告タグ。HB120は±1°C温度センシングとデータロギングを追加。ファームウェア開発不要、出荷時にプリプログラム済み。',
+  's7.tag': '製品アーキテクチャ',
+  's7.title': '製品アーキテクチャ<span class="accent">概要</span>',
+  's7.a1t': 'BLE センサーハブ', 's7.a2t': 'スマートビーコン',
+  's8.tag': 'アプリケーション事例',
+  's8.title': '実<span class="accent">ユースケース</span>',
+  's8.sc1t': 'コールドチェーン監視', 's8.sc2t': '予知保全', 's8.sc3t': 'スマートビル HVAC',
+  's8.more': '<strong>さらに：</strong>SH/SBプラットフォームは<strong>環境モニタリングネットワーク</strong>（都市大気質、SH-100 + PM2.5 + ソーラー）、<strong>スマートバンドエイド</strong>（創傷温モニタリング、HB120）、<strong>臨床試験コンプライアンス</strong>（服薬記録＋温ロギング、HB120）、<strong>スマートゴミ箱</strong>（満杯検知、HB100）など多様な用途を実現します。',
+  's9.tag': 'ミッション & ビジョン',
+  's9.quote': '「信頼性。効率。インテリジェント。」',
+  's9.body': 'Humbo Technologyのミッションは、インテリジェントセンシングを民主化することです。コールドチェーンコンテナから病院の包帯まで、あらゆる物理的資産に手頃なリアルタイムセンシングを提供します。マルチチャンネルモジュラーハードウェアと超低コストビーコン技術を組み合わせ、AIoTセンシングを大規模に実用化します。',
+  's9.t1': '長期パートナー', 's9.t2': '技術統合支援', 's9.t3': 'モジュラー設計', 's9.t4': 'アプリ連携', 's9.t5': 'AIoT実現',
+  's10.slogan': 'センシングをより<span class="accent">スマート</span>に。',
+  's10.sub': 'BLE Sensor Hub / SmartBeacon エンジニアリングサンプルを早期入手',
+  's10.wl': 'ウェブサイト', 's10.cl': 'お問い合わせ',
+  's10.brand': '© 2026 Humbo Technology Inc. · Independent Design House · All Rights Reserved.',
+  'nav.brand_zh': '瀚渤科技',
+  'nav.home': 'ホーム',
+  'nav.about': '会社概要',
+  'nav.tech': 'コア技術',
+  'nav.products': '製品紹介',
+  'nav.scenarios': '応用事例',
+  'nav.contact': 'お問い合わせ',
+};
+
+let currentLang = 'zh';
+
+function toggleMobileMenu() {
+  document.getElementById('hamburgerMenu').classList.toggle('active');
+  document.querySelector('.nav-links').classList.toggle('active');
+}
+
+function scrollToSlide(id) {
+  const target = document.getElementById(id);
+  if (target) {
+    const navHeight = 72;
+    const bodyRect = document.body.getBoundingClientRect().top;
+    const elementRect = target.getBoundingClientRect().top;
+    const elementPosition = elementRect - bodyRect;
+    const offsetPosition = elementPosition - navHeight;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+  }
+  
+  // Close mobile menu if active
+  const hamburger = document.getElementById('hamburgerMenu');
+  if (hamburger) hamburger.classList.remove('active');
+  const navLinks = document.querySelector('.nav-links');
+  if (navLinks) navLinks.classList.remove('active');
+}
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (I18N[lang][key] !== undefined) {
+      el.innerHTML = I18N[lang][key];
+    }
+  });
+  document.querySelectorAll('.lang-switcher button').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+  });
+  document.documentElement.lang = lang === 'zh' ? 'zh-TW' : lang;
+}
+</script>
+</body>
+</html>
